@@ -164,6 +164,11 @@
       janelaCerebro.style.display = "block";
     });
 
+    btnAbrirCardio.addEventListener("click", () => {
+      telaInicial.style.display = "none";
+      janelaCardio.style.display = "block";
+    });
+
     document.getElementById("cpfdlBtn").addEventListener("click", () => {
       infoBox.style.display = "block";
       infoBox.innerHTML = "<h2>Córtex Pré-Frontal Dorsolateral (CPFDL)</h2><p>Modula a expectativa de melhora; sua integridade é indispensável, justificando a perda do efeito placebo na Doença de Alzheimer.</p>";
