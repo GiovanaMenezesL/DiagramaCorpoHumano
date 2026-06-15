@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cérebro Interativo</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  svg {
+    display: block;
+    margin: 40px auto;
+    width: 400px;
+    cursor: pointer;
+  }
+  .region:hover {
+    fill: #ffcc00;
+  }
+  #infoBox {
+    position: fixed;       /* fixa na tela */
+    bottom: 0;             /* cola no rodapé */
+    left: 0;
+    width: 100%;           /* ocupa toda a largura */
+    background: #fff;
+    border-top: 2px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <h1>Cérebro Interativo</h1>
+
+  <!-- Protótipo simplificado em SVG -->
+  <svg viewBox="0 0 400 200">
+    <!-- Cada região é representada por um círculo apenas para teste -->
+    <circle class="region" id="cpfdl" cx="80" cy="100" r="30" fill="#99ccff" />
+    <circle class="region" id="cca" cx="160" cy="100" r="30" fill="#cc99ff" />
+    <circle class="region" id="accumbens" cx="240" cy="100" r="30" fill="#ff9999" />
+    <circle class="region" id="amigdala" cx="320" cy="70" r="30" fill="#99ff99" />
+    <circle class="region" id="scp" cx="320" cy="130" r="30" fill="#ffcc99" />
+  </svg>
+
+  <div id="infoBox"></div>
+
+  <script>
+    const infoBox = document.getElementById("infoBox");
+
+    document.getElementById("cpfdl").addEventListener("click", () => {
+      infoBox.style.display = "block";
+      infoBox.innerHTML = "<h2>Córtex Pré-Frontal Dorsolateral (CPFDL)</h2><p>Modula a expectativa de melhora; sua integridade é indispensável, justificando a perda do efeito placebo na Doença de Alzheimer.</p>";
+    });
+
+    document.getElementById("cca").addEventListener("click", () => {
+      infoBox.style.display = "block";
+      infoBox.innerHTML = "<h2>Córtex Cingulado Anterior (CCA)</h2><p>Integra os componentes afetivo e nociceptivo, recrutando redes antinociceptivas subcorticais.</p>";
+    });
+
+    document.getElementById("accumbens").addEventListener("click", () => {
+      infoBox.style.display = "block";
+      infoBox.innerHTML = "<h2>Núcleo Accumbens (Dopamina)</h2><p>Eixo do sistema de recompensa mesolímbico. A antecipação do alívio induz o disparo da Área Tegmentar Ventral (ATV), liberando dopamina no Accumbens. A ativação dos receptores D_1 e D_2 atenua o estresse biológico proporcionalmente à expectativa.</p>";
+    });
+
+    document.getElementById("amigdala").addEventListener("click", () => {
+      infoBox.style.display = "block";
+      infoBox.innerHTML = "<h2>Amígdala</h2><p>Processa as respostas de medo e estresse; sua atenuação reduz o impacto fisiológico da patologia.</p>";
+    });
+
+    document.getElementById("scp").addEventListener("click", () => {
+      infoBox.style.display = "block";
+      infoBox.innerHTML = "<h2>Substância Cinzenta Periaquedutal (SCP - Endorfina)</h2><p>Ativada por eferências corticais, coordena a via inibidora descendente via secreção de β-endorfinas e encefalinas, bloqueando o sinal álgico na medula.</p>";
+    });
+  </script>
+</body>
+</html>
