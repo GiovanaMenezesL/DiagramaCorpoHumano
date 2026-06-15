@@ -47,6 +47,20 @@
       background-color: #357abd;
     }
 
+    #btnAbrirCardio {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    #btnAbrirCardio:hover {
+      background-color: #357abd;
+    }
+
     .brain-container {
       position: relative;
       width: 800px;
@@ -92,6 +106,7 @@
 
   <img src="CorpoHumano.png" alt="Diagrama do corpo humano" class="imagem-corpo"> 
   <button id="btnAbrirCerebro">Abrir cérebro humano</button>
+  <button id="btnAbrirCardio">Abrir sistema cardiovascular</button>
   </div>
 
   <div id="janelaCerebro">
@@ -121,6 +136,14 @@
   </div>
   </div>
 
+  <div id="janelaCardio" style="display:none;">
+    <h1>Sistema Cardiovascular</h1>
+
+    <div class="brain-container">
+      <img src="Cardiovascular.png" alt="Sistema Cardiovascular">
+    </div>
+  </div>
+
   <div id="infoBox"></div>
 
   <script>
@@ -128,6 +151,8 @@
     const telaInicial = document.querySelector(".tela-inicial");
     const janelaCerebro = document.getElementById("janelaCerebro");
     const btnAbrirCerebro = document.getElementById("btnAbrirCerebro");
+    const janelaCardio = document.getElementById("janelaCardio");
+    const btnAbrirCardio = document.getElementById("btnAbrirCardio");
 
     btnAbrirCerebro.addEventListener("click", () => {
       telaInicial.style.display = "none";
