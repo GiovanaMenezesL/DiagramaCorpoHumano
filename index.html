@@ -4,16 +4,46 @@
   <meta charset="UTF-8">
   <title>Cérebro Interativo</title>
   <style>
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
     }
+
     h1 {
       text-align: center;
       margin-top: 20px;
     }
+    
+     .tela-inicial {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .imagem-corpo {
+      display: block;
+      max-width: 350px;
+      width: 90%;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    #btnAbrirCerebro {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    #btnAbrirCerebro:hover {
+      background-color: #357abd;
+    }
+
     .brain-container {
       position: relative;
       width: 800px;
@@ -23,6 +53,7 @@
       width: 100%;
       display: block;
     }
+
     .region-btn {
       position: absolute;
       background: rgba(255,255,255,0.3);
@@ -33,6 +64,12 @@
     .region-btn:hover {
       background: rgba(255,204,0,0.6);
     }
+
+    #janelaCerebro {
+      display: none;
+      padding-bottom: 100px;
+    }
+
     #infoBox {
       position: fixed;
       bottom: 0;
@@ -47,37 +84,52 @@
   </style>
 </head>
 <body>
+  <div class="tela-inicial">
+  <h1>Diagrama do Corpo Humano</h1>
+
+  <img src="CorpoHumano.png" alt="Diagrama do corpo humano" class="imagem-corpo"> 
+  <button id="btnAbrirCerebro">Abrir cérebro humano</button>
+  </div>
+
+  <div id="janelaCerebro">
   <h1>Cérebro Interativo</h1>
+
 
   <div class="brain-container">
     <img src="ImagemCerebro1.png" alt="Cérebro">
 
     <!-- Azul claro -->
   <button id="cpfdlBtn" class="region-btn" 
-          style="top: 155px; left: 452px; width: 120px; height: 70px; background: rgba(173, 216, 230, 0.5);"></button>
+    style="top: 155px; left: 452px; width: 120px; height: 70px; background: rgba(173, 216, 230, 0.5);"></button>
 
   <!-- Verde claro -->
   <button id="ccaBtn" class="region-btn" 
-          style="top: 50px; left: 18px;  width: 150px; height: 70px; background: rgba(144, 238, 144, 0.5);"></button>
-
+    style="top: 50px; left: 18px;  width: 150px; height: 70px; background: rgba(144, 238, 144, 0.5);"></button>
   <!-- Amarelo -->
   <button id="accumbensBtn" class="region-btn" 
-          style="top: 340px; left: 510px;  width: 120px; height: 70px; background: rgba(255, 255, 0, 0.5);"></button>
-
+   style="top: 340px; left: 510px;  width: 120px; height: 70px; background: rgba(255, 255, 0, 0.5);"></button>
   <!-- Laranja -->
   <button id="amigdalaBtn" class="region-btn" 
-          style="top: 340px; left: 130px;  width: 100px; height: 60px; background: rgba(255, 165, 0, 0.5);"></button>
-
+    style="top: 340px; left: 130px;  width: 100px; height: 60px; background: rgba(255, 165, 0, 0.5);"></button>
   <!-- Cinza -->
   <button id="scpBtn" class="region-btn" 
-          style="top: 285px; left: 35px;  width: 120px; height: 80px; background: rgba(128, 128, 128, 0.5);"></button>
-
+    style="top: 285px; left: 35px;  width: 120px; height: 80px; background: rgba(128, 128, 128, 0.5);"></button>
+    
+  </div>
   </div>
 
   <div id="infoBox"></div>
 
   <script>
     const infoBox = document.getElementById("infoBox");
+    const telaInicial = document.querySelector(".tela-inicial");
+    const janelaCerebro = document.getElementById("janelaCerebro");
+    const btnAbrirCerebro = document.getElementById("btnAbrirCerebro");
+
+    btnAbrirCerebro.addEventListener("click", () => {
+      telaInicial.style.display = "none";
+      janelaCerebro.style.display = "block";
+    });
 
     document.getElementById("cpfdlBtn").addEventListener("click", () => {
       infoBox.style.display = "block";
