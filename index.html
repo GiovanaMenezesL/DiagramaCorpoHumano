@@ -39,12 +39,12 @@
       cursor: pointer;
       border: none;
       border-radius: 6px;
-      background-color: #4a90e2;
+      background-color: #527399;
       color: white;
     }
 
     #btnAbrirCerebro:hover {
-      background-color: #357abd;
+      background-color: #527399;
     }
 
     #btnAbrirCardio {
@@ -53,12 +53,12 @@
       cursor: pointer;
       border: none;
       border-radius: 6px;
-      background-color: #4a90e2;
+      background-color: #527399;
       color: white;
     }
 
     #btnAbrirCardio:hover {
-      background-color: #357abd;
+      background-color: #527399;
     }
 
     .brain-container {
@@ -92,6 +92,66 @@
       padding-bottom: 100px;
     }
 
+    .tela-inicial {
+      position: relative;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .corpo-container{
+      position: relative;
+      display: inline-block;
+    }
+
+    .anotacoes{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+    }
+
+    .linha-anatomia{
+      stroke:#000000;
+      stroke-width:3;
+    }
+
+    .ponto-anatomia{
+      fill:#000000;
+    }
+
+    .label-anatomia{
+      position:absolute;
+
+      background:white;
+      border:none;
+
+      border-radius:30px;
+
+      padding:12px 18px;
+
+      font-size:16px;
+      font-weight:600;
+
+      box-shadow:0 4px 15px rgba(0,0,0,.12);
+
+      cursor:pointer;
+    }
+
+    .label-anatomia:hover{
+      transform:translateY(-2px);
+    }
+
+    .cerebro{
+      top:8%;
+      left:65%;
+    }
+
+    .cardio{
+      top:34%;
+      left:68%;
+    }
+
     #infoBox {
       position: fixed;
       bottom: 0;
@@ -109,10 +169,50 @@
   <div class="tela-inicial">
   <h1>Diagrama do Corpo Humano</h1>
 
-  <img src="CorpoHumano.png" alt="Diagrama do corpo humano" class="imagem-corpo"> 
-  <button id="btnAbrirCerebro">Abrir cérebro humano</button>
-  <button id="btnAbrirCardio">Abrir sistema cardiovascular</button>
-  </div>
+  <div class="corpo-container">
+
+  <img src="CorpoHumano.png"
+       alt="Diagrama do corpo humano"
+       class="imagem-corpo">
+
+  <svg class="anotacoes" viewBox="0 0 1000 1400">
+
+    <!-- cérebro -->
+    <line x1="520" y1="100"
+          x2="760" y2="150"
+          class="linha-anatomia"/>
+
+    <circle cx="520"
+            cy="100"
+            r="6"
+            class="ponto-anatomia"/>
+
+    <!-- coração -->
+    <line x1="520" y1="430"
+          x2="760" y2="500"
+          class="linha-anatomia"/>
+
+    <circle cx="520"
+            cy="430"
+            r="6"
+            class="ponto-anatomia"/>
+
+      </svg>
+
+    <button id="btnAbrirCerebro"
+            class="label-anatomia cerebro">
+      Cérebro
+        </button>
+
+    <button id="btnAbrirCardio"
+            class="label-anatomia cardio">
+      Cardiovascular
+    </button>
+
+    </div> 
+    </div> 
+
+</div>
 
   <div id="janelaCerebro">
   <h1>Cérebro Interativo</h1>
