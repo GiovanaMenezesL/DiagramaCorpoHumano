@@ -83,7 +83,6 @@
     }
 
     #janelaCerebro {
-      display: none;
       padding-bottom: 100px;
     }
 
@@ -95,6 +94,12 @@
       position: relative;
       text-align: center;
       padding: 30px;
+      transition: transform 0.4s ease;
+    }
+
+    .tela-inicial.deslocada {
+      transform: translateX(-30%) scale(0.9);
+      opacity: 0.9;
     }
 
     .corpo-container{
@@ -151,11 +156,57 @@
       left:68%;
     }
 
+    .modal-cerebro{
+      position: fixed;
+
+      top: 50%;
+      left: 65%;
+
+      width: 80%;
+      max-width: 1000px;
+      height: 80vh;
+
+      background: white;
+
+      border-radius: 25px;
+
+      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+
+      z-index: 1000;
+
+      overflow: auto;
+
+      visibility: hidden;
+      opacity: 0;
+
+      transform: translate(-50%, -50%) scale(0);
+
+      transition: .4s ease;
+    }
+
+    .modal-cerebro.ativo{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .cardio-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .cardio-container img {
+      max-width: 90%;
+      max-height: 68vh;
+      width: auto;
+      height: auto;
+}
+
     .modal-cardio{
       position: fixed;
 
       top: 50%;
-      left: 50%;
+      left: 70%;
 
       width: 80%;
       max-width: 1000px;
@@ -276,7 +327,12 @@
 
 </div>
 
-  <div id="janelaCerebro">
+  <div id="overlayCerebro" class="overlay"></div>
+  <div id="janelaCerebro" class="modal-cerebro">
+  <button id="fecharCerebro" class="fechar">
+    ✕
+  </button>
+
   <h1>Cérebro Interativo</h1>
 
 
@@ -313,7 +369,7 @@
 
     <h1>Sistema Cardiovascular</h1>
 
-    <div class="brain-container">
+    <div class="cardio-container">
       <img src="Cardiovascular.png"
           alt="Sistema Cardiovascular">
     </div>
@@ -330,9 +386,26 @@
     const janelaCardio = document.getElementById("janelaCardio");
     const btnAbrirCardio = document.getElementById("btnAbrirCardio");
 
+    const overlayCerebro = document.getElementById("overlayCerebro");
+
+    const fecharCerebro = document.getElementById("fecharCerebro");
+
     btnAbrirCerebro.addEventListener("click", () => {
-      telaInicial.style.display = "none";
-      janelaCerebro.style.display = "block";
+
+      telaInicial.classList.add("deslocada");
+
+      overlayCerebro.classList.add("ativo");
+      janelaCerebro.classList.add("ativo");
+
+    });
+
+    fecharCerebro.addEventListener("click", () => {
+
+      telaInicial.classList.remove("deslocada");
+
+      overlayCerebro.classList.remove("ativo");
+      janelaCerebro.classList.remove("ativo");
+
     });
 
     const overlayCardio = document.getElementById("overlayCardio");
@@ -341,12 +414,16 @@
 
     btnAbrirCardio.addEventListener("click", () => {
 
+      telaInicial.classList.add("deslocada");
+
       overlayCardio.classList.add("ativo");
       janelaCardio.classList.add("ativo");
 
     });
 
     fecharCardio.addEventListener("click", () => {
+
+      telaInicial.classList.remove("deslocada");
 
       overlayCardio.classList.remove("ativo");
       janelaCardio.classList.remove("ativo");
