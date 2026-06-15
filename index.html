@@ -88,7 +88,6 @@
     }
 
     #janelaCardio {
-      display: none;
       padding-bottom: 100px;
     }
 
@@ -152,6 +151,70 @@
       left:68%;
     }
 
+    .modal-cardio{
+      position: fixed;
+
+      top: 50%;
+      left: 50%;
+
+      width: 80%;
+      max-width: 1000px;
+      height: 80vh;
+
+      background: white;
+
+      border-radius: 25px;
+
+      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+
+      z-index: 1000;
+
+      overflow: auto;
+
+      visibility: hidden;
+      opacity: 0;
+
+      transform: translate(-50%, -50%) scale(0);
+
+      transition: .4s ease;
+    }
+
+    .modal-cardio.ativo{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+
+    .overlay{
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0,0,0,.3);
+
+      z-index: 999;
+
+      display:none;
+    }
+
+    .overlay.ativo{
+      display:block;
+    }
+
+    .fechar{
+      position:absolute;
+
+      top:15px;
+      right:20px;
+
+      border:none;
+      background:none;
+
+      font-size:28px;
+
+      cursor:pointer;
+    }
+
     #infoBox {
       position: fixed;
       bottom: 0;
@@ -210,7 +273,6 @@
     </button>
 
     </div> 
-    </div> 
 
 </div>
 
@@ -241,13 +303,22 @@
   </div>
   </div>
 
-  <div id="janelaCardio" style="display:none;">
+  <div id="overlayCardio" class="overlay"></div>
+
+  <div id="janelaCardio" class="modal-cardio">
+
+    <button id="fecharCardio" class="fechar">
+      ✕
+    </button>
+
     <h1>Sistema Cardiovascular</h1>
 
     <div class="brain-container">
-      <img src="Cardiovascular.png" alt="Sistema Cardiovascular">
+      <img src="Cardiovascular.png"
+          alt="Sistema Cardiovascular">
     </div>
-  </div>
+
+</div>
 
   <div id="infoBox"></div>
 
@@ -264,9 +335,22 @@
       janelaCerebro.style.display = "block";
     });
 
+    const overlayCardio = document.getElementById("overlayCardio");
+
+    const fecharCardio = document.getElementById("fecharCardio");
+
     btnAbrirCardio.addEventListener("click", () => {
-      telaInicial.style.display = "none";
-      janelaCardio.style.display = "block";
+
+      overlayCardio.classList.add("ativo");
+      janelaCardio.classList.add("ativo");
+
+    });
+
+    fecharCardio.addEventListener("click", () => {
+
+      overlayCardio.classList.remove("ativo");
+      janelaCardio.classList.remove("ativo");
+
     });
 
     document.getElementById("cpfdlBtn").addEventListener("click", () => {
