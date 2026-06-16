@@ -115,8 +115,13 @@
       transition: transform 0.4s ease;
     }
 
-    .tela-inicial.deslocada {
-      transform: translateX(-30%) scale(0.9);
+    .tela-inicial.deslocada-esquerda {
+      transform: translateX(-20%) scale(0.9);
+      opacity: 0.9;
+    }
+
+    .tela-inicial.deslocada-direita {
+      transform: translateX(20%) scale(0.9);
       opacity: 0.9;
     }
 
@@ -175,17 +180,17 @@
     }
   
     .musc{
-      top:34%;
-      left:68%;
+      top:18%;
+      left:17%;
     }
 
     .modal-cerebro{
       position: fixed;
 
       top: 50%;
-      left: 65%;
+      left: 98%;
 
-      width: 80%;
+      width: 60%;
       max-width: 1000px;
       height: 80vh;
 
@@ -202,7 +207,7 @@
       visibility: hidden;
       opacity: 0;
 
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%) scale(0);
 
       transition: .4s ease;
     }
@@ -229,9 +234,9 @@
       position: fixed;
 
       top: 50%;
-      left: 70%;
+      left: 98%;
 
-      width: 80%;
+      width: 60%;
       max-width: 1000px;
       height: 80vh;
 
@@ -248,7 +253,7 @@
       visibility: hidden;
       opacity: 0;
 
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%) scale(0);
 
       transition: .4s ease;
     }
@@ -275,8 +280,8 @@
       position: fixed;
 
       top: 50%;
-      left: 70%;
-      width: 80%;
+      left: 2%;
+      width: 60%;
       max-width: 1000px;
       height: 80vh;
 
@@ -290,30 +295,14 @@
       visibility: hidden;
       opacity: 0;
       transform: translate(-50%, -50%) scale(0);
-      transition: .4s ease;
+      transition: 0.4s ease;
     }
 
     .modal-musc.ativo{
       visibility: visible;
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
-    }
-
-
-    .overlay{
-      position: fixed;
-      inset: 0;
-
-      background: rgba(0,0,0,.3);
-
-      z-index: 999;
-
-      display:none;
-    }
-
-    .overlay.ativo{
-      display:block;
-    }
+    } 
 
     .fechar{
       position:absolute;
@@ -375,7 +364,17 @@
                 r="6"
                 class="ponto-anatomia"/>
 
-          </svg>
+        <!-- muscular -->
+        <line x1="359" y1="330"
+              x2="220" y2="285"
+              class="linha-anatomia"/>
+
+        <circle cx="355"
+          cy="330"
+          r="6"
+          class="ponto-anatomia"/>
+
+        </svg>
 
         <button id="btnAbrirCerebro"
                 class="label-anatomia cerebro">
@@ -392,19 +391,7 @@
           Muscular
         </button>
 
-  <!--Muscular-->
-        <line x1="320" y1="430"
-              x2="550" y2="500"
-              class="linha-anatomia"/>
 
-        <circle cx="320"
-                cy="430"
-                r="6"
-                class="ponto-anatomia"/>
-
-          </svg>
-
-    </div>
   </div>
 
   <!--Cerebro-->
@@ -483,7 +470,7 @@
                 alt="Sistema Cardiovascular">
           </div>
         </div>
-      </div>
+
 
     <!-- JanelaMusc-->
     <div id="overlayMusc" class="overlay"></div>
@@ -501,7 +488,6 @@
         </div>
 
       </div>
-    </div>
 
   <div id="infoBox"></div>
 
@@ -522,7 +508,7 @@
 
     btnAbrirCerebro.addEventListener("click", () => {
 
-      telaInicial.classList.add("deslocada");
+      telaInicial.classList.add("deslocada-esquerda");
 
       overlayCerebro.classList.add("ativo");
       janelaCerebro.classList.add("ativo");
@@ -531,7 +517,7 @@
 
     fecharCerebro.addEventListener("click", () => {
 
-      telaInicial.classList.remove("deslocada");
+      telaInicial.classList.remove("deslocada-esquerda");
 
       overlayCerebro.classList.remove("ativo");
       janelaCerebro.classList.remove("ativo");
@@ -544,7 +530,7 @@
 
     btnAbrirCardio.addEventListener("click", () => {
 
-      telaInicial.classList.add("deslocada");
+      telaInicial.classList.add("deslocada-esquerda");
 
       overlayCardio.classList.add("ativo");
       janelaCardio.classList.add("ativo");
@@ -553,7 +539,7 @@
 
     fecharCardio.addEventListener("click", () => {
 
-      telaInicial.classList.remove("deslocada");
+      telaInicial.classList.remove("deslocada-esquerda");
 
       overlayCardio.classList.remove("ativo");
       janelaCardio.classList.remove("ativo");
@@ -565,7 +551,7 @@
 
     btnAbrirMusc.addEventListener("click", () => {
 
-      telaInicial.classList.add("deslocada");
+      telaInicial.classList.add("deslocada-direita");
 
       overlayMusc.classList.add("ativo");
       janelaMusc.classList.add("ativo");
@@ -574,7 +560,7 @@
 
     fecharMusc.addEventListener("click", () => {
 
-      telaInicial.classList.remove("deslocada");
+      telaInicial.classList.remove("deslocada-direita");
 
       overlayMusc.classList.remove("ativo");
       janelaMusc.classList.remove("ativo");
