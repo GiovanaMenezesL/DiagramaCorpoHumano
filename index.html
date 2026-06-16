@@ -57,6 +57,20 @@
       color: white;
     }
 
+    #btnAbrirMusc:hover {
+      background-color: #527399;
+    }
+
+    #btnAbrirMusc {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #527399;
+      color: white;
+    }
+
     #btnAbrirCardio:hover {
       background-color: #527399;
     }
@@ -87,6 +101,10 @@
     }
 
     #janelaCardio {
+      padding-bottom: 100px;
+    }
+
+   #janelaMusc {
       padding-bottom: 100px;
     }
 
@@ -152,6 +170,11 @@
     }
 
     .cardio{
+      top:34%;
+      left:68%;
+    }
+  
+    .musc{
       top:34%;
       left:68%;
     }
@@ -236,6 +259,46 @@
       transform: translate(-50%, -50%) scale(1);
     }
 
+    .musc-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .musc-container img {
+      max-width: 90%;
+      max-height: 68vh;
+      width: auto;
+      height: auto;
+}
+
+    .modal-musc{
+      position: fixed;
+
+      top: 50%;
+      left: 70%;
+      width: 80%;
+      max-width: 1000px;
+      height: 80vh;
+
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+
+      z-index: 1000;
+      overflow: auto;
+
+      visibility: hidden;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      transition: .4s ease;
+    }
+
+    .modal-musc.ativo{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
 
     .overlay{
       position: fixed;
@@ -281,100 +344,164 @@
 </head>
 <body>
   <div class="tela-inicial">
-  <h1>Diagrama do Corpo Humano</h1>
 
-  <div class="corpo-container">
+    <h1>Diagrama do Corpo Humano</h1>
 
-  <img src="CorpoHumano.png"
-       alt="Diagrama do corpo humano"
-       class="imagem-corpo">
+    <div class="corpo-container">
 
-  <svg class="anotacoes" viewBox="0 0 1000 1400">
+      <img src="CorpoHumano.png"
+          alt="Diagrama do corpo humano"
+          class="imagem-corpo">
 
-    <!-- cérebro -->
-    <line x1="520" y1="100"
-          x2="760" y2="150"
-          class="linha-anatomia"/>
+      <svg class="anotacoes" viewBox="0 0 1000 1400">
 
-    <circle cx="520"
-            cy="100"
-            r="6"
-            class="ponto-anatomia"/>
+        <!-- cérebro -->
+        <line x1="520" y1="100"
+              x2="760" y2="150"
+              class="linha-anatomia"/>
 
-    <!-- coração -->
-    <line x1="520" y1="430"
-          x2="760" y2="500"
-          class="linha-anatomia"/>
+        <circle cx="520"
+                cy="100"
+                r="6"
+                class="ponto-anatomia"/>
 
-    <circle cx="520"
-            cy="430"
-            r="6"
-            class="ponto-anatomia"/>
+        <!-- coração -->
+        <line x1="520" y1="430"
+              x2="760" y2="500"
+              class="linha-anatomia"/>
 
-      </svg>
+        <circle cx="520"
+                cy="430"
+                r="6"
+                class="ponto-anatomia"/>
 
-    <button id="btnAbrirCerebro"
-            class="label-anatomia cerebro">
-      Cérebro
+          </svg>
+
+        <button id="btnAbrirCerebro"
+                class="label-anatomia cerebro">
+          Cérebro
+            </button>
+
+        <button id="btnAbrirCardio"
+                class="label-anatomia cardio">
+          Cardiovascular
         </button>
 
-    <button id="btnAbrirCardio"
-            class="label-anatomia cardio">
-      Cardiovascular
-    </button>
+        <button id="btnAbrirMusc"
+                class="label-anatomia musc">
+          Muscular
+        </button>
 
-    </div> 
+  <!--Muscular-->
+        <line x1="320" y1="430"
+              x2="550" y2="500"
+              class="linha-anatomia"/>
 
-</div>
+        <circle cx="320"
+                cy="430"
+                r="6"
+                class="ponto-anatomia"/>
 
-  <div id="overlayCerebro" class="overlay"></div>
-  <div id="janelaCerebro" class="modal-cerebro">
-  <button id="fecharCerebro" class="fechar">
-    ✕
-  </button>
+          </svg>
 
-  <h1>Cérebro Interativo</h1>
-
-
-  <div class="brain-container">
-    <img src="ImagemCerebro1.png" alt="Cérebro">
-
-    <!-- Azul claro -->
-  <button id="cpfdlBtn" class="region-btn" 
-    style="top: 155px; left: 452px; width: 120px; height: 70px; background: rgba(173, 216, 230, 0.5);"></button>
-
-  <!-- Verde claro -->
-  <button id="ccaBtn" class="region-btn" 
-    style="top: 50px; left: 18px;  width: 150px; height: 70px; background: rgba(144, 238, 144, 0.5);"></button>
-  <!-- Amarelo -->
-  <button id="accumbensBtn" class="region-btn" 
-   style="top: 340px; left: 510px;  width: 120px; height: 70px; background: rgba(255, 255, 0, 0.5);"></button>
-  <!-- Laranja -->
-  <button id="amigdalaBtn" class="region-btn" 
-    style="top: 340px; left: 130px;  width: 100px; height: 60px; background: rgba(255, 165, 0, 0.5);"></button>
-  <!-- Cinza -->
-  <button id="scpBtn" class="region-btn" 
-    style="top: 285px; left: 35px;  width: 120px; height: 80px; background: rgba(128, 128, 128, 0.5);"></button>
-
-  </div>
-  </div>
-
-  <div id="overlayCardio" class="overlay"></div>
-
-  <div id="janelaCardio" class="modal-cardio">
-
-    <button id="fecharCardio" class="fechar">
-      ✕
-    </button>
-
-    <h1>Sistema Cardiovascular</h1>
-
-    <div class="cardio-container">
-      <img src="Cardiovascular.png"
-          alt="Sistema Cardiovascular">
     </div>
+  </div>
 
-</div>
+  <!--Cerebro-->
+    <div id="overlayCerebro" class="overlay"></div>
+      <div id="janelaCerebro" class="modal-cerebro">
+
+        <button id="fecharCerebro" class="fechar">
+          ✕
+        </button>
+
+        <h1>Cérebro Interativo</h1>
+
+        <div class="brain-container">
+
+          <img src="ImagemCerebro1.png" alt="Cérebro">
+
+            <!-- Azul claro -->
+          <button id="cpfdlBtn" class="region-btn" 
+            style="top: 155px; 
+            left: 452px; 
+            width: 120px; 
+            height: 70px; 
+            background: rgba(173, 216, 230, 0.5);"
+          ></button>
+
+          <!-- Verde claro -->
+          <button id="ccaBtn" class="region-btn" 
+            style="top: 50px; 
+            left: 18px;  
+            width: 150px; 
+            height: 70px; 
+            background: rgba(144, 238, 144, 0.5);"
+          ></button>
+
+          <!-- Amarelo -->
+          <button id="accumbensBtn" class="region-btn" 
+            style="top: 340px; 
+            left: 510px;  
+            width: 120px; 
+            height: 70px; 
+            background: rgba(255, 255, 0, 0.5);"
+          ></button>
+
+          <!-- Laranja -->
+          <button id="amigdalaBtn" class="region-btn" 
+            style="top: 340px;
+            left: 130px;  
+            width: 100px; 
+            height: 60px; 
+            background: rgba(255, 165, 0, 0.5);"
+          ></button>
+
+          <!-- Cinza -->
+          <button id="scpBtn" class="region-btn" 
+            style="top: 285px;
+            left: 35px;  
+            width: 120px; 
+            height: 80px; 
+            background: rgba(128, 128, 128, 0.5);"
+          ></button>
+        </div>
+      </div>
+
+    <!-- JanelaCardio-->
+    <div id="overlayCardio" class="overlay"></div>
+      <div id="janelaCardio" class="modal-cardio">
+
+        <button id="fecharCardio" class="fechar">
+          ✕
+        </button>
+
+        <h1>Sistema Cardiovascular</h1>
+
+          <div class="cardio-container">
+            <img src="Cardiovascular.png"
+                alt="Sistema Cardiovascular">
+          </div>
+        </div>
+      </div>
+
+    <!-- JanelaMusc-->
+    <div id="overlayMusc" class="overlay"></div>
+      <div id="janelaMusc" class="modal-musc">
+
+        <button id="fecharMusc" class="fechar">
+          ✕
+        </button>
+
+        <h1>Sistema Muscular</h1>
+
+        <div class="musc-container">
+          <img src="Muscular.png"
+              alt="Sistema Muscular">
+        </div>
+
+      </div>
+    </div>
 
   <div id="infoBox"></div>
 
@@ -385,6 +512,9 @@
     const btnAbrirCerebro = document.getElementById("btnAbrirCerebro");
     const janelaCardio = document.getElementById("janelaCardio");
     const btnAbrirCardio = document.getElementById("btnAbrirCardio");
+    const janelaMusc = document.getElementById("janelaMusc");
+    const btnAbrirMusc = document.getElementById("btnAbrirMusc");
+
 
     const overlayCerebro = document.getElementById("overlayCerebro");
 
@@ -430,6 +560,28 @@
 
     });
 
+    const overlayMusc = document.getElementById("overlayMusc");
+    const fecharMusc = document.getElementById("fecharMusc");
+
+    btnAbrirMusc.addEventListener("click", () => {
+
+      telaInicial.classList.add("deslocada");
+
+      overlayMusc.classList.add("ativo");
+      janelaMusc.classList.add("ativo");
+
+    });
+
+    fecharMusc.addEventListener("click", () => {
+
+      telaInicial.classList.remove("deslocada");
+
+      overlayMusc.classList.remove("ativo");
+      janelaMusc.classList.remove("ativo");
+
+    });
+
+
     document.getElementById("cpfdlBtn").addEventListener("click", () => {
       infoBox.style.display = "block";
       infoBox.innerHTML = "<h2>Córtex Pré-Frontal Dorsolateral (CPFDL)</h2><p>Modula a expectativa de melhora; sua integridade é indispensável, justificando a perda do efeito placebo na Doença de Alzheimer.</p>";
@@ -454,6 +606,8 @@
       infoBox.style.display = "block";
       infoBox.innerHTML = "<h2>Substância Cinzenta Periaquedutal (SCP - Endorfina)</h2><p>Ativada por eferências corticais, coordena a via inibidora descendente via secreção de β-endorfinas e encefalinas, bloqueando o sinal álgico na medula.</p>";
     });
+
   </script>
+
 </body>
 </html>
