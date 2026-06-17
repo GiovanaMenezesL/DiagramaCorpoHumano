@@ -8,7 +8,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #fbfcfe;
+      background-color: #000000;
       margin: 0;
       padding: 0;
     }
@@ -40,7 +40,7 @@
       border: none;
       border-radius: 6px;
       background-color: #527399;
-      color: white;
+      color: rgb(255, 255, 255);
     }
 
     #btnAbrirCerebro:hover {
@@ -142,12 +142,12 @@
     }
 
     .linha-anatomia{
-      stroke:#000000;
+      stroke:#ffffff;
       stroke-width:3;
     }
 
     .ponto-anatomia{
-      fill:#000000;
+      fill:#ffffff;
     }
 
     .label-anatomia{
@@ -197,11 +197,11 @@
       max-width: 1000px;
       height: 80vh;
 
-      background: white;
+      background: rgb(0, 0, 0);
 
       border-radius: 25px;
 
-      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.25);
 
       z-index: 1000;
 
@@ -238,9 +238,9 @@
       position: static;       
       width: 80%;             
       padding: 20px;
-      background: white;
+      background: #292929;
+      color: #ffffff;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,.15);
       text-align: left;
       font-size: 18px;
       line-height: 1.4;
@@ -268,11 +268,11 @@
       max-width: 1000px;
       height: 80vh;
 
-      background: white;
+      background: rgb(0, 0, 0);
 
       border-radius: 25px;
 
-      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.25);
 
       z-index: 1000;
 
@@ -313,7 +313,7 @@
       max-width: 1000px;
       height: 80vh;
 
-      background: white;
+      background: rgb(0, 0, 0);
       border-radius: 25px;
       box-shadow: 0 15px 50px rgba(0,0,0,.25);
 
@@ -342,7 +342,7 @@
       background:none;
 
       font-size:28px;
-
+      color:rgb(255, 255, 255);
       cursor:pointer;
     }
 
@@ -354,7 +354,8 @@
       width: 80%;
       margin: 20px auto;
       padding: 20px;
-      background: #f5f5f5;
+      background: #292929;
+      color:rgb(255, 255, 255);
       border-radius: 12px;
       text-align: left;
     }
@@ -381,12 +382,12 @@
 <body>
   <div class="tela-inicial">
 
-    <h1>Diagrama do Corpo Humano</h1>
+    <h1>O Efeito Placebo no Corpo Humano</h1>
 
     <div class="corpo-container">
 
       <img src="CorpoHumano.png"
-          alt="Diagrama do corpo humano"
+          alt="O Efeito Placebo no Corpo Humano"
           class="imagem-corpo">
 
       <svg class="anotacoes" viewBox="0 0 1000 1400">
@@ -453,7 +454,7 @@
 
         <div class="brain-container">
 
-          <img src="ImagemCerebro1.png" alt="Cérebro">
+          <img src="ImagemCerebro.png" alt="Cérebro">
 
             <!-- Azul claro -->
           <button id="cpfdlBtn" class="region-btn" 
@@ -547,6 +548,31 @@
         <div class="musc-container">
           <img src="Muscular.png"
               alt="Sistema Muscular">
+        </div>
+
+        <div class="balao modulacao">
+          <strong>Modulação da Nocicepção</strong><br>
+          Redução da dor em afecções agudas ou crônicas via sistemas opioide endógeno e endocanabinoide.
+        </div>
+
+        <div class="balao Bloqueio Sináptico">
+            <strong>Bloqueio Sináptico</strong><br>
+            \beta-endorfinas ligam-se a receptores opioides \mu pré e pós-sinápticos no corno dorsal da medula.
+        </div>
+
+        <div class="balao Cascata Celular">
+            <strong>Cascata Celular (Proteína G_i)</strong><br>
+            Inibição de canais de Ca^{2+} pré-sinápticos: Bloqueia a exocitose de neurotransmissores pró-nociceptivos (Glutamato e Substância P).
+        </div>
+
+        <div class="balao Hiperpolarização">
+            <strong>Hiperpolarização pós-sináptica</strong><br>
+            Abre canais de K^+, gerando efluxo iônico e impedindo o potencial de ação.
+        </div>
+
+        <div class="balao Resultado">
+            <strong>Resultado</strong><br>
+            Barramento cinético do estímulo doloroso na periferia do sistema nervoso central, impedindo sua ascensão à percepção consciente cortical.
         </div>
 
       </div>
