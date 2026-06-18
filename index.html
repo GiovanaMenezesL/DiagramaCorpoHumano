@@ -96,8 +96,6 @@
       background: rgba(255,204,0,0.6);
     }
 
-
-  /*Tamanho das janelas*/
     #janelaCerebro {
       padding-bottom: 100px;
     }
@@ -118,15 +116,14 @@
     }
 
    .tela-inicial.deslocada-esquerda {
-      transform: translate(-20%, -9%) scale(0.9);
+      transform: translate(-20%, -9%) scale(0.8);
       opacity: 0.9;
     }
 
     .tela-inicial.deslocada-direita {
-      transform: translate(20%, -9%) scale(0.9);
+      transform: translate(20%, -9%) scale(0.8);
       opacity: 0.9;
     }
-
 
     .corpo-container{
       position: relative;
@@ -190,12 +187,12 @@
     .modal-cerebro{
       position: fixed;
 
-      top: 50%;
-      left: 98%;
+      top: 56%;
+      left: 103%;
 
-      width: 60%;
+      width: 54%;
       max-width: 1000px;
-      height: 80vh;
+      height: 92vh;
 
       background: rgb(0, 0, 0);
 
@@ -228,43 +225,19 @@
     }
 
     .cardio-container img {
-      max-width: 80%;
-      max-height: 68vh;
+      max-width: 95%;
+      max-height: 85vh;
       width: auto;
       height: auto;
-    }
-
-    .balao {
-      position: static;       
-      width: 80%;             
-      padding: 20px;
-      background: #292929;
-      color: #ffffff;
-      border-radius: 15px;
-      text-align: left;
-      font-size: 18px;
-      line-height: 1.4;
-      margin-top: 15px;       
-    }
-
-
-    .efeito {
-      top: 100px;
-      right: 600px;
-    }
-
-    .mecanismo {
-      top: 400px;
-      right: 68px;
     }
 
     .modal-cardio{
       position: fixed;
 
-      top: 50%;
-      left: 98%;
+      top: 37%;
+      left: 103%;
 
-      width: 50%;
+      width: 52%;
       max-width: 1000px;
       height: 80vh;
 
@@ -289,29 +262,17 @@
     .modal-cardio.ativo{
       visibility: visible;
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -30%) scale(1);
     }
-
-    .musc-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .musc-container img {
-      max-width: 90%;
-      max-height: 68vh;
-      width: auto;
-      height: auto;
-}
 
     .modal-musc{
       position: fixed;
 
-      top: 50%;
-      left: 2%;
-      width: 60%;
+      top: 56%;
+      left: -4%;
+      width: 54%;
       max-width: 1000px;
-      height: 80vh;
+      height: 92vh;
 
       background: rgb(0, 0, 0);
       border-radius: 25px;
@@ -365,16 +326,103 @@
       flex-direction: column; 
       align-items: center;
       padding: 20px;
-      height: 80vh;
+      height: 98vh;
       overflow-y: auto;       
     }
 
-    .cardio-container {
+    .balao {
+      position: absolute;
+      width: 215px;
+      padding: 23px;
+      background: rgb(74, 108, 150);
+      color: #ffffff;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgb(226, 195, 195);
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .mecanismo {
+      top: 400px;
+      right: 68px;
+    }
+
+    .musc-container{
+      position: relative;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .musc-container img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+    }
+
+    .imagem-musc {
+      width: 50%;
       display: flex;
-      flex-direction: column; 
-      align-items: center;
-      gap: 20px;              
+      justify-content: center;
+    }
+
+    .texto-musc .balao {
       width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .modulacao {
+      position: absolute;
+      width: 160px;
+      left: 30px;
+      top: 70px;
+    }
+
+    .bloqueio {
+      position: absolute;
+      width: 160px;
+      left: 30px;
+      top: 340px;
+    }
+
+    .cascata {
+      position: absolute;
+      width: 185px;
+      left: 542px;
+      top: 15px;
+    }
+
+    .hiperpolarizacao {
+      position: absolute;
+      width: 185px;
+      left: 542px;
+      top: 245px;
+    }
+
+    .resultado {
+      position: absolute;
+      width: 185px;
+      left: 542px;
+      top: 455px;
+    }
+
+    .efeito {
+      position: absolute;
+      width: 150px;
+
+      left: -30px;
+      top: 180px;
+    }
+
+    .mecanismo {
+      position: absolute;
+      width: 150px;
+
+      left: 470px;
+      top: 125px;
     }
 
   </style>
@@ -517,8 +565,10 @@
 
           <div class="cardio-container">
 
-            <img src="Cardiovascular.png"
-                alt="Sistema Cardiovascular">
+            <div>
+              <img src="Cardiovascular.png"
+                  alt="Sistema Cardiovascular">
+            </div>
 
             <div class="balao efeito">
               <strong>Efeito</strong><br>
@@ -531,8 +581,8 @@
               promovendo o rearranjo de barorreceptores e a homeostase autonômica.
             </div>
 
-      </div>
-    </div>
+          </div>
+        </div>
 
 
     <!-- JanelaMusc-->
@@ -546,38 +596,40 @@
         <h1>Sistema Muscular</h1>
 
         <div class="musc-container">
-          <img src="Muscular.png"
-              alt="Sistema Muscular">
-        </div>
 
-        <div class="balao modulacao">
-          <strong>Modulação da Nocicepção</strong><br>
-          Redução da dor em afecções agudas ou crônicas via sistemas opioide endógeno e endocanabinoide.
-        </div>
+        <img src="Muscular.png"
+            alt="Sistema Muscular"
+            alt="Sistema Muscular">
 
-        <div class="balao Bloqueio Sináptico">
+          <div class="balao modulacao">
+            <strong>Modulação da Nocicepção</strong><br>
+            Redução da dor em afecções agudas ou crônicas via sistemas opioide endógeno e endocanabinoide.
+          </div>
+
+          <div class="balao bloqueio">
             <strong>Bloqueio Sináptico</strong><br>
-            \beta-endorfinas ligam-se a receptores opioides \mu pré e pós-sinápticos no corno dorsal da medula.
-        </div>
+            β-endorfinas ligam-se a receptores opioides μ pré e pós-sinápticos no corno dorsal da medula.
+          </div>
 
-        <div class="balao Cascata Celular">
-            <strong>Cascata Celular (Proteína G_i)</strong><br>
-            Inibição de canais de Ca^{2+} pré-sinápticos: Bloqueia a exocitose de neurotransmissores pró-nociceptivos (Glutamato e Substância P).
-        </div>
+          <div class="balao cascata">
+            <strong>Cascata Celular (Proteína Gᵢ)</strong><br>
+            Inibição de canais de Ca²⁺ pré-sinápticos: bloqueia a exocitose de neurotransmissores pró-nociceptivos.
+          </div>
 
-        <div class="balao Hiperpolarização">
+          <div class="balao hiperpolarizacao">
             <strong>Hiperpolarização pós-sináptica</strong><br>
-            Abre canais de K^+, gerando efluxo iônico e impedindo o potencial de ação.
-        </div>
+            Abre canais de K⁺, gerando efluxo iônico e impedindo o potencial de ação.
+          </div>
 
-        <div class="balao Resultado">
+          <div class="balao resultado">
             <strong>Resultado</strong><br>
-            Barramento cinético do estímulo doloroso na periferia do sistema nervoso central, impedindo sua ascensão à percepção consciente cortical.
-        </div>
+            Barramento cinético do estímulo doloroso na periferia do sistema nervoso central.
+          </div>
+
+       
 
       </div>
-    </div>
-
+    </div>  
   <script>
     const infoBox = document.getElementById("infoBox");
     const telaInicial = document.querySelector(".tela-inicial");
